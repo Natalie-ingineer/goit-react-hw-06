@@ -17,8 +17,8 @@ export const ContactList = () => {
           userId={contact.id}
           contact={contact.name}
           phonenumber={contact.number}
-          onDeleteUser={(contacts, actions) => {
-            dispatch(deleteContacts({ id: nanoid(), ...contacts }));
+          onClick={(contacts, actions) => {
+            dispatch(deleteContacts({ id: nanoid() !== actions }));
           }}
         ></Contact>
       ))}
