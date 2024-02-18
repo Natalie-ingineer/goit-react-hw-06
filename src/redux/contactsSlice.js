@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import { persistReducer } from "redux-persist";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -23,7 +25,17 @@ const contactsSlice = createSlice({
 });
 
 export const { addContacts, deleteContacts } = contactsSlice.actions;
-export const contactsReducer = contactsSlice.reducer;
+
+const persistConfig = {
+  key: "balance",
+  storage,
+  whiteList: ["value"],
+};
+
+export const contactsReducer = persistReducer(
+  persistConfig,
+  contactsSlice.reducer
+);
 
 // reducers: {
 //         addContact: (state, action) => {
