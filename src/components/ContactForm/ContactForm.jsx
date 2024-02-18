@@ -4,7 +4,7 @@ import { useId } from "react";
 import { nanoid } from "nanoid";
 import css from "./ContactForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addContacts, deleteContacts } from "../../redux/contactsSlice";
+import { addContacts } from "../../redux/contactsSlice";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,20 +16,21 @@ const userSchema = Yup.object().shape({
     .required("Please, fill in the field!"),
 });
 
-export const ContactForm = ({  }) => {
+export const ContactForm = () => {
   const usernameFieldId = useId();
   const numberFieldId = useId();
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts.value);
+  const contacts = useSelector((state) => state);
 
   return (
     <Formik
-      initialValues={{ name: "", number: "" }}
+      // initialValues={{ name: "", number: "" }}
+      initialValues={contacts}
       validationSchema={userSchema}
-      onSubmit={(values, actions) => {
-        dispatch(addContacts( {id: nanoid(), ...values }));
+      onSubmit={(contacts, actions) => {
+        dispatch(addContacts({ id: nanoid(), ...contacts }));
         actions.resetForm();
-      }
+      }}
     >
       <Form className={css.form}>
         <div className={css.formWrap}>

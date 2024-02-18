@@ -7,8 +7,8 @@ export const App = () => {
     <>
       <h1 className="caption">Phonebook</h1>
       <ContactForm />
-      <SearchBox value={nameFilter} onFilter={setNameFilter} />
-      <ContactList items={visibleUsers} onDelete={deleteUser} />
+      <SearchBox />
+      <ContactList />
     </>
   );
 };
