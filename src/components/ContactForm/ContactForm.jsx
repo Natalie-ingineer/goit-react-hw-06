@@ -16,7 +16,7 @@ const userSchema = Yup.object().shape({
     .required("Please, fill in the field!"),
 });
 
-export const ContactForm = ({ onAdd }) => {
+export const ContactForm = ({  }) => {
   const usernameFieldId = useId();
   const numberFieldId = useId();
   const dispatch = useDispatch();
@@ -27,9 +27,9 @@ export const ContactForm = ({ onAdd }) => {
       initialValues={{ name: "", number: "" }}
       validationSchema={userSchema}
       onSubmit={(values, actions) => {
-        onAdd({ id: nanoid(), ...values });
+        dispatch(addContacts( {id: nanoid(), ...values }));
         actions.resetForm();
-      }}
+      }
     >
       <Form className={css.form}>
         <div className={css.formWrap}>

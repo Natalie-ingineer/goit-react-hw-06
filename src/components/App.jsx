@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <>
       <h1 className="caption">Phonebook</h1>
-      <ContactForm onAdd={addUser} />
+      <ContactForm />
       <SearchBox value={nameFilter} onFilter={setNameFilter} />
       <ContactList items={visibleUsers} onDelete={deleteUser} />
     </>

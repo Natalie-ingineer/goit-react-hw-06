@@ -13,10 +13,10 @@ const contactsSlice = createSlice({
     ],
   },
   reducers: {
-    addContact: (state, action) => {
+    addContacts: (state, action) => {
       state.contacts = [...state.contacts, action.payload];
     },
-    deleteContact: (state, action) => {
+    deleteContacts: (state, action) => {
       state.contacts = state.contacts.filter(
         (el) => [el.id](`http://el.id/`) !== action.payload
       );
