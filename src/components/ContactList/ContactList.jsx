@@ -6,16 +6,17 @@ import { nanoid } from "nanoid";
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state);
+  const contacts = useSelector((state) => state.contacts.contacts);
+  console.log(contacts);
 
   return (
     <ul className={css.listContacts}>
-      {contacts.map(({ id, name, number }) => (
+      {contacts.map((contact) => (
         <Contact
-          key={id}
-          userId={id}
-          contact={name}
-          phonenumber={number}
+          key={contact.id}
+          userId={contact.id}
+          contact={contact.name}
+          phonenumber={contact.number}
           onDeleteUser={(contacts, actions) => {
             dispatch(deleteContacts({ id: nanoid(), ...contacts }));
           }}
