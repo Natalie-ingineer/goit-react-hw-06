@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 export const SearchBox = () => {
   const usernameFieldIdsearch = useId();
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state);
+  const contacts = useSelector((state) => state.filters.filters);
   return (
     <div className={css.btnWrap}>
       <label className={css.description} htmlFor={usernameFieldIdsearch}>
