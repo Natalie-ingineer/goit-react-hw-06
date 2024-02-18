@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { useId } from "react";
 import { nanoid } from "nanoid";
 import css from "./ContactForm.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addContacts, deleteContacts } from "../../redux/contactsSlice";
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -17,6 +19,8 @@ const userSchema = Yup.object().shape({
 export const ContactForm = ({ onAdd }) => {
   const usernameFieldId = useId();
   const numberFieldId = useId();
+  const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contacts.value);
 
   return (
     <Formik
