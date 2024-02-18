@@ -16,14 +16,8 @@ export const SearchBox = () => {
         type="text"
         value={contacts}
         // onChange={(evt) => onFilter(evt.target.value)}
-        onChange={(state, action) => {
-          dispatch(
-            nameFilter(
-              state.contacts.filter((el) =>
-                el.name.toLowerCase().includes(action.payload.toLowerCase())
-              )
-            )
-          );
+        onChange={(e) => {
+          dispatch(nameFilter(e.target.value));
         }}
         id={usernameFieldIdsearch}
       />
