@@ -1,10 +1,9 @@
 import css from "./ContactList.module.css";
-import { Contact } from "../Contact/Contact";
+import Contact from "../Contact/Contact";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContacts } from "../../redux/contactsSlice";
-// import { nanoid } from "nanoid";
 
-export const ContactList = () => {
+export default function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts.contacts.item);
   console.log(contacts);
@@ -29,4 +28,4 @@ export const ContactList = () => {
       ))}
     </ul>
   );
-};
+}

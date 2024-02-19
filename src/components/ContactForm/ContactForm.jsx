@@ -16,7 +16,7 @@ const userSchema = Yup.object().shape({
     .required("Please, fill in the field!"),
 });
 
-export const ContactForm = () => {
+export default function ContactForm() {
   const usernameFieldId = useId();
   const numberFieldId = useId();
   const dispatch = useDispatch();
@@ -64,4 +64,4 @@ export const ContactForm = () => {
       </Form>
     </Formik>
   );
-};
+}
