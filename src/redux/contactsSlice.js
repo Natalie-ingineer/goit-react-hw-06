@@ -13,9 +13,6 @@ const contactsSlice = createSlice({
         { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
       ],
     },
-    filters: {
-      name: "",
-    },
   },
   reducers: {
     addContacts: (state, action) => {

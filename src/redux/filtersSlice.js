@@ -15,12 +15,16 @@ const filtersSlice = createSlice({
   },
   reducers: {
     nameFilter: (state, action) => {
-      state.contacts.filter((el) =>
-        el.name.toLowerCase().includes(action.payload.toLowerCase())
-      );
+      state.filters.name = action.payload;
     },
   },
 });
 
 export const { nameFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
+
+// nameFilter: (state, action) => {
+//       state.filters.name.filter((el) =>
+//         el.name.toLowerCase().includes(action.payload.toLowerCase())
+//       );
+//     },

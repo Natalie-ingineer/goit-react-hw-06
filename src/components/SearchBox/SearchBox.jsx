@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 export const SearchBox = () => {
   const usernameFieldIdsearch = useId();
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.filters.filters);
+  const filter = useSelector((state) => state.filters.filters.name);
+  console.log(filter);
+
   return (
     <div className={css.btnWrap}>
       <label className={css.description} htmlFor={usernameFieldIdsearch}>
@@ -14,7 +16,7 @@ export const SearchBox = () => {
       </label>
       <input
         type="text"
-        value={contacts}
+        value={filter}
         // onChange={(evt) => onFilter(evt.target.value)}
         onChange={(e) => {
           dispatch(nameFilter(e.target.value));
@@ -24,3 +26,9 @@ export const SearchBox = () => {
     </div>
   );
 };
+
+// nameFilter: (state, action) => {
+//       state.filters.name.filter((el) =>
+//         el.name.toLowerCase().includes(action.payload.toLowerCase())
+//       );
+// },
