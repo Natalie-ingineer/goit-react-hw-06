@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts.contacts);
+  const contacts = useSelector((state) => state.contacts.contacts.item);
   console.log(contacts);
 
   return (
@@ -17,8 +17,8 @@ export const ContactList = () => {
           userId={contact.id}
           contact={contact.name}
           phonenumber={contact.number}
-          onClick={(contacts, actions) => {
-            dispatch(deleteContacts({ id: nanoid() !== actions }));
+          onDelete={(contacts, actions) => {
+            dispatch(deleteContacts(contacts));
           }}
         ></Contact>
       ))}
